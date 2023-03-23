@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour
 {
-    Rigidbody body;
+    Rigidbody2D body;
     PlayerInput playerInput;
     Vector2 moveVector;
     [SerializeField] InputAction moveLeft;
@@ -15,7 +15,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
        
-        body = GetComponent<Rigidbody>();
+        body = GetComponent<Rigidbody2D>();
         moveVector = Vector2.zero;
 
     }
@@ -31,11 +31,12 @@ public class PlayerScript : MonoBehaviour
     {
         if (context.action.WasPerformedThisFrame())
         {
-            body.AddForce(8f * Vector2.up, ForceMode.Impulse);
+            body.AddForce(8f * Vector2.up, ForceMode2D.Impulse);
         }
     }
     public void OnMove(InputAction.CallbackContext context)
     {
         moveVector = context.ReadValue<Vector2>();
     }
+
 }
