@@ -17,24 +17,25 @@ public class PlayerScript : MonoBehaviour
        
         body = GetComponent<Rigidbody2D>();
         moveVector = Vector2.zero;
-
+        
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         body.AddForce(4.5f * moveVector * Vector2.right);
-
+        OnJump(Jump);
+        
     }
 
-    public void OnJump(InputAction.CallbackContext context)
+    public void OnJump(InputAction context)
     {
-        if (context.action.WasPerformedThisFrame())
+        if (context.WasPerformedThisFrame())
         {
             body.AddForce(8f * Vector2.up, ForceMode2D.Impulse);
         }
     }
-    public void OnMove(InputAction.CallbackContext context)
+    public void OnMove(InputAction context)
     {
         moveVector = context.ReadValue<Vector2>();
     }

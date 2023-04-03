@@ -15,7 +15,18 @@ public class PlayerBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.D)||Input.GetKey(KeyCode.RightArrow) && Player.transform.position.x < 7.8f)
+        {
+            transform.Translate(new Vector3(7f * Time.deltaTime, 0, 0));
+        }
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) && Player.transform.position.x < 7.8f)
+        {
+            transform.Translate(new Vector3(-7f * Time.deltaTime, 0, 0));
+        }
+        if (Input.GetKey(KeyCode.Space) && Player.transform.position.y < 100f)
+        {
+            transform.Translate(new Vector3(0, 7f * Time.deltaTime, 0));
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
