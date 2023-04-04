@@ -32,7 +32,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (context.WasPerformedThisFrame())
         {
-            body.AddForce(8f * Vector2.up, ForceMode2D.Impulse);
+            body.AddForce(12f * Vector2.up, ForceMode2D.Impulse);
         }
     }
     public void OnMove(InputAction context)
